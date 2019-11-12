@@ -1,0 +1,22 @@
+{
+  "name": "nextjs",
+  "version": "4.0.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "^4.5.1",
+    "clsx": "latest",
+    "markdown-to-jsx": "^6.10.3",
+    "next": "latest",
+    "prop-types": "latest",
+    "raw-loader": "^3.1.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "simple-react-lightbox": "^1.4.3"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  }
+}
