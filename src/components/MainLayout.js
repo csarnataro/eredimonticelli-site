@@ -15,8 +15,8 @@ const sections = [
   {label: "Prodotti", page: "/it/tranciati-in-legno"},
   {label: "Mobili agriturismo", page: "/it/mobili-per-agriturismo"},
   {label: "Metodo", page: "/it/metodo"},
-  {label: "Dove siamo", page: "#2"},
-  {label: "Contatti", page: "#3"},
+  {label: "Dove siamo", page: "/it/dove-siamo"},
+  {label: "Contatti", page: "/it/contatti"},
 ];
 
 const useStyles = makeStyles(theme => ({
@@ -121,7 +121,7 @@ export default ({ children }) => {
               color="inherit"
               noWrap
               as={section.page}
-              key={section.url}
+              key={section.page}
               variant="body1"
               href={section.page}
               className={classes.toolbarLink}
