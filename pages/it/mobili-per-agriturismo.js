@@ -38,7 +38,7 @@ export default function Furnitures() {
   const classes = useStyles();
 
   return (
-    <MainLayout>
+    <MainLayout pageType="furnitures">
       <SimpleReactLightbox>
         <Markdown className={classes.markdown}>{data}</Markdown>
         <SRLWrapper>

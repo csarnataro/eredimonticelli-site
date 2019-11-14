@@ -24,7 +24,7 @@ export default function Furnitures () {
   const classes = useStyles()
 
   return (
-    <MainLayout>
+    <MainLayout pageType='where'>
       <Container fixed maxWidth='md' className={classes.container}>
         <Grid container spacing={3}>
           <Grid item md={6}>

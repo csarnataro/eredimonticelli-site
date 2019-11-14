@@ -20,11 +20,6 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
-        <style jsx global>{`
-          body { 
-            background-image: url(/images/bg.jpg);
-          }
-        `}</style>
         <body>
           <Main />
           <NextScript />

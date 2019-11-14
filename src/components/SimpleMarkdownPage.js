@@ -9,11 +9,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SimpleMarkdownPage(data) {
+export default (props) => {
   const classes = useStyles();
-
+  const { data, pageType } = props
   return (
-    <MainLayout>
+    <MainLayout pageType={pageType}>
       <Markdown className={classes.markdown}>
         {data || 'NO DATA'}
       </Markdown>

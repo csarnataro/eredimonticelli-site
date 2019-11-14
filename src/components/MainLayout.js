@@ -31,8 +31,10 @@ const useStyles = makeStyles(theme => ({
     padding: "20px"
   },
   toolbarLink: {
-    padding: theme.spacing(1),
-    flexShrink: 0
+    padding: theme.spacing(1, 1, 0, 1),
+    flexShrink: 0,
+    borderBottom: '4px solid gray'
+
   },
 
   mainFeaturedPost: {
@@ -40,12 +42,31 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
     marginBottom: theme.spacing(1),
-    backgroundImage: "url(https://source.unsplash.com/sp-p7uuT0tw/900x220)",
+    backgroundImage: "url(https://source.unsplash.com/jFCViYFYcus/900x220)",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     margin: `auto -${theme.spacing(4)}px`,
   },
+  index: {
+    backgroundImage: "url(https://source.unsplash.com/jFCViYFYcus/900x220)",
+  },
+  contacts: {
+    backgroundImage: "url(https://source.unsplash.com/u3ajSXhZM_U/900x220)",
+  },
+  where: {
+    backgroundImage: "url(https://source.unsplash.com/mHe5VpKhjOo/900x220)",
+  },
+  products: {
+    backgroundImage: "url(https://source.unsplash.com/lQQ4FtSYjEo/900x220)",
+  },
+  method: {
+    backgroundImage: "url(https://source.unsplash.com/guH91yuPaMk/900x220)",
+  },
+  furnitures: {
+    backgroundImage: "url(https://source.unsplash.com/ryO9maYr4rY/900x220)",
+  },
+
   overlay: {
     position: "absolute",
     top: 0,
@@ -84,7 +105,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default ({ children }) => {
+export default ({ children, pageType = 'index' }) => {
   const classes = useStyles();
 
   return (
@@ -93,7 +114,7 @@ export default ({ children }) => {
 
       <Container fixed maxWidth="md" className={classes.container}>
         {/* Main featured post */}
-        <Paper className={classes.mainFeaturedPost} square>
+        <Paper className={`${classes.mainFeaturedPost} ${classes[pageType]}`} square>
           <div className={classes.overlay} />
           <Grid container>
             <Grid item md={6}>
@@ -148,7 +169,7 @@ export default ({ children }) => {
               color="textSecondary"
               component="p"
             >
-              Eredi Monticelli S.n.C. - Via XXV Aprile 11, Primaluna (LC)
+              Eredi Monticelli s.n.c. - Via XXV Aprile 11, Primaluna (LC)
             </Typography>
             <Copyright />
           </Container>
