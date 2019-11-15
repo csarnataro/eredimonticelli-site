@@ -10,20 +10,6 @@ module.exports = {
     BUILD_ID: nextBuildId.sync().substr(0,8)
   },
   generateBuildId: () => nextBuildId({ dir: __dirname }),
-  exportPathMap: async function(
-    defaultPathMap,
-    { dev, dir, outDir, distDir, buildId }
-  ) {
-    return {
-      '/': { page: '/' },
-      '/index.html': { page: '/index' },
-      '/it/contatti.html': { page: '/it/contatti' },
-      '/it/dove-siamo.html': { page: '/it/dove-siamo' },
-      '/it/metodo.html': { page: '/it/metodo' },
-      '/it/mobili-per-agriturismo.html': { page: '/it/mobili-per-agriturismo' },
-      '/it/tranciati-in-legno.html': { page: '/it/tranciati-in-legno' }
-    }
-  },  
   webpack: (config) => {
     config.module.rules.push(
       {

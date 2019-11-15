@@ -6,7 +6,7 @@ export default () => {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright '}{new Date().getFullYear()}{' © - '}
-      <Link color="inherit" href="/" as="/index.html">
+      <Link color="inherit" href="/" as="/">
         www.eredimonticelli.it
       </Link>
       <small style={{float: 'right'}}>rev: {process.env.BUILD_ID}</small>
