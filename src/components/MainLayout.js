@@ -105,7 +105,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const hrefAlias = page => `${page.replace(/^\//, '')}.html`
+const hrefAlias = page => `${page}.html`
 
 export default ({ children, pageType = 'index' }) => {
   const classes = useStyles();

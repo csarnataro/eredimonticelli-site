@@ -13,4 +13,4 @@
   - Acacia
   - Radica
 
-- Tranciati di altre essenze e spessori sono disponibili su richiesta. [Contattateci](contatti.html) per informazioni su altri materiali o per prodotti e servizi di tranciatura personalizzati.
+- Tranciati di altre essenze e spessori sono disponibili su richiesta. [Contattateci](/it/contatti.html) per informazioni su altri materiali o per prodotti e servizi di tranciatura personalizzati.
