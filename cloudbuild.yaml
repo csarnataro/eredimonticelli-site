@@ -5,7 +5,7 @@ steps:
   args: ['run', 'build']
 - name: 'gcr.io/cloud-builders/npm'  
   args: ['run', 'export']
-- name: gcr.io/cloud-builders/gsutil
+- name: 'alpine'
   args: [
     'find', 
     './out', 
