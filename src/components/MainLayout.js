@@ -11,7 +11,7 @@ import React from "react";
 import Copyright from "./Copyright";
 
 const sections = [
-  {label: "Home", page: "/"},
+  {label: "Home", page: "/index"},
   {label: "Prodotti", page: "/it/tranciati-in-legno"},
   {label: "Mobili agriturismo", page: "/it/mobili-per-agriturismo"},
   {label: "Metodo", page: "/it/metodo"},
@@ -141,7 +141,7 @@ export default ({ children, pageType = 'index' }) => {
             <Link
               color="inherit"
               noWrap
-              as={section.page}
+              as={`${section.page}.html`}
               key={section.page}
               variant="body1"
               href={section.page}

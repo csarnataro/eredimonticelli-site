@@ -6,7 +6,7 @@ export default () => {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright '}{new Date().getFullYear()}{' © - '}
-      <Link color="inherit" href="/">
+      <Link color="inherit" href="/" as="/index.html">
         www.eredimonticelli.it
       </Link>
     </Typography>

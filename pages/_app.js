@@ -24,7 +24,7 @@ export default class MyApp extends App {
         </Head>
         <style jsx global>{`
           body { 
-            background-image: url(/images/bg.jpg);
+            background-image: url(https://storage.googleapis.com/www.eredimonticelli.it/images/bg.jpg);
           }
         `}</style>
 
