@@ -105,6 +105,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const hrefAlias = page => `${page.replace(/^\//, '')}.html`
+
 export default ({ children, pageType = 'index' }) => {
   const classes = useStyles();
 
@@ -141,7 +143,7 @@ export default ({ children, pageType = 'index' }) => {
             <Link
               color="inherit"
               noWrap
-              as={`${section.page}.html`}
+              as={hrefAlias(section.page)}
               key={section.page}
               variant="body1"
               href={section.page}

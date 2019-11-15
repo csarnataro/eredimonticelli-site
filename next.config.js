@@ -1,10 +1,16 @@
 require('dotenv').config()
+const nextBuildId = require('next-build-id')
+
 module.exports = {
   env: {
     // Reference a variable that was defined in the .env file and make it available at Build Time
     EMAIL: process.env.EMAIL,
+    BUILD_ID: {
+      id: nextBuildId({ dir: __dirname, describe: true, fallbackToSha: true })
+    }
   },
- exportPathMap: async function(
+  generateBuildId: () => nextBuildId({ dir: __dirname }),
+  exportPathMap: async function(
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
   ) {

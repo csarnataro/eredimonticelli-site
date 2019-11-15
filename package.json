@@ -9,6 +9,7 @@
     "dotenv": "^8.2.0",
     "markdown-to-jsx": "^6.10.3",
     "next": "latest",
+    "next-build-id": "^3.0.0",
     "prop-types": "latest",
     "raw-loader": "^3.1.0",
     "react": "latest",
