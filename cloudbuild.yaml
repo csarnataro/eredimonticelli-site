@@ -6,7 +6,7 @@ steps:
 - name: 'gcr.io/cloud-builders/npm'  
   args: ['run', 'export']
 - name: 'alpine'
-  args: ['cd out; for i in $$(find . -name *.html); mv "$$i" "$$(basename "$$i" .html)"; done']
+  args: ['./scripts/strip_extensions.sh']
 - name: gcr.io/cloud-builders/gsutil
   args: ['rsync', '-d', '-r', 'out', 'gs://www.eredimonticelli.it']
 timeout: "300s"
