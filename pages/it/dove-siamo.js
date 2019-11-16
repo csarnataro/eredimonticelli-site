@@ -31,19 +31,19 @@ export default function Furnitures () {
             Eredi di Monticelli Angelo<br />
             Via XXV Aprile 11<br />
             23819 Primaluna (LC) - ITALY<br />
-    <iframe
-    width="100%"
-    height="400"
-    frameBorder="0"
-    scrolling="no"
-    marginHeight="0"
-    marginWidth="0"
-    src="http://maps.google.it/maps?f=d&amp;hl=it&amp;geocode=18146798009793306119,45.978370,9.441741&amp;saddr=45.97837,9.441741&amp;daddr=&amp;mra=ps&amp;mrcr=0&amp;sll=45.917005,9.452705&amp;sspn=0.148803,0.32135&amp;ie=UTF8&amp;t=p&amp;s=AARTsJpVNgtpMnpx4ZsRBEym7jx_Vdsykg&amp;ll=45.803914,9.387817&amp;spn=0.765875,0.76355&amp;z=9&amp;output=embed"
-    ></iframe>
-    <br />
-    <small>
-      <a target="_BLANK" href="http://maps.google.it/maps?f=d&amp;hl=it&amp;geocode=18146798009793306119,45.978370,9.441741&amp;saddr=45.97837,9.441741&amp;daddr=&amp;mra=ps&amp;mrcr=0&amp;sll=45.917005,9.452705&amp;sspn=0.148803,0.32135&amp;ie=UTF8&amp;ll=45.94924,9.330139&amp;spn=0.381937,0.381775&amp;z=10&amp;source=embed" style={{textAlign: 'left'}}>Visualizzazione ingrandita della mappa</a>
-    </small>
+            <iframe
+              width="100%"
+              height="400"
+              frameBorder="0"
+              scrolling="no"
+              marginHeight="0"
+              marginWidth="0"
+              src="http://maps.google.it/maps?f=d&amp;hl=it&amp;geocode=18146798009793306119,45.978370,9.441741&amp;saddr=45.97837,9.441741&amp;daddr=&amp;mra=ps&amp;mrcr=0&amp;sll=45.917005,9.452705&amp;sspn=0.148803,0.32135&amp;ie=UTF8&amp;t=p&amp;s=AARTsJpVNgtpMnpx4ZsRBEym7jx_Vdsykg&amp;ll=45.803914,9.387817&amp;spn=0.765875,0.76355&amp;z=9&amp;output=embed"
+            ></iframe>
+            <br />
+            <small>
+              <a target="_blank" rel="noopener noreferrer" href="http://maps.google.it/maps?f=d&amp;hl=it&amp;geocode=18146798009793306119,45.978370,9.441741&amp;saddr=45.97837,9.441741&amp;daddr=&amp;mra=ps&amp;mrcr=0&amp;sll=45.917005,9.452705&amp;sspn=0.148803,0.32135&amp;ie=UTF8&amp;ll=45.94924,9.330139&amp;spn=0.381937,0.381775&amp;z=10&amp;source=embed" style={{ textAlign: 'left' }}>Visualizzazione ingrandita della mappa</a>
+            </small>
 
           </Grid>
           <Grid item md={6}>

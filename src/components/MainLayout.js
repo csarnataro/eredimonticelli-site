@@ -1,107 +1,90 @@
-import Container from "@material-ui/core/Container";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Grid from "@material-ui/core/Grid";
-import Link from "../../src/Link";
-import Paper from "@material-ui/core/Paper";
-import { makeStyles } from "@material-ui/core/styles";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import React from "react";
-import Copyright from "./Copyright";
+import Container from '@material-ui/core/Container'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
+import { makeStyles } from '@material-ui/core/styles'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import PropTypes from 'prop-types'
+import React from 'react'
+import Link from '../../src/Link'
+import { getLinkAlias } from '../utils/getLinkAlias'
+import Copyright from './Copyright'
 
 const sections = [
-  {label: "Home", page: "/index", as: '/'},
-  {label: "Prodotti", page: "/it/tranciati-in-legno"},
-  {label: "Mobili agriturismo", page: "/it/mobili-per-agriturismo"},
-  {label: "Metodo", page: "/it/metodo"},
-  {label: "Dove siamo", page: "/it/dove-siamo"},
-  {label: "Contatti", page: "/it/contatti"},
-];
+  { label: 'Home', page: '/index', as: '/' },
+  { label: 'Prodotti', page: '/it/tranciati-in-legno' },
 
-const getRouteAlias = (section) => {
-  switch (true) {
-    case process.env.NODE_ENV === 'development':
-      return section.as || section.page
-    case section.as !== undefined:
-      return section.as
-    case !section.page.endsWith('/'):
-      return `${section.page}.html`
-    default:
-        section.page
-  }
-}
+  { label: 'Mobili agriturismo', page: '/it/mobili-per-agriturismo' },
+  { label: 'Metodo', page: '/it/metodo' },
+  { label: 'Dove siamo', page: '/it/dove-siamo' },
+  { label: 'Contatti', page: '/it/contatti' }
+]
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
-    justifyContent: "space-between",
-    overflowX: "auto",
+    justifyContent: 'space-between',
+    overflowX: 'auto',
     marginBottom: theme.spacing(2)
   },
   toolbarTitle: {
     flex: 1,
-    padding: "20px"
+    padding: '20px'
   },
   toolbarLink: {
     padding: theme.spacing(1, 1, 0, 1),
-    flexShrink: 0,
-    borderBottom: '4px solid gray'
-
+    flexShrink: 0
   },
-
   mainFeaturedPost: {
-    position: "relative",
+    position: 'relative',
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
     marginBottom: theme.spacing(1),
-    backgroundImage: "url(https://source.unsplash.com/jFCViYFYcus/900x220)",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-    margin: `auto -${theme.spacing(4)}px`,
+    backgroundImage: 'url(https://source.unsplash.com/jFCViYFYcus/900x220)',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    margin: `auto -${theme.spacing(4)}px`
   },
   index: {
-    backgroundImage: "url(https://source.unsplash.com/jFCViYFYcus/900x220)",
+    backgroundImage: 'url(https://source.unsplash.com/jFCViYFYcus/900x220)'
   },
   contacts: {
-    backgroundImage: "url(https://source.unsplash.com/u3ajSXhZM_U/900x220)",
+    backgroundImage: 'url(https://source.unsplash.com/u3ajSXhZM_U/900x220)'
   },
   where: {
-    backgroundImage: "url(https://source.unsplash.com/mHe5VpKhjOo/900x220)",
+    backgroundImage: 'url(https://source.unsplash.com/mHe5VpKhjOo/900x220)'
   },
   products: {
-    backgroundImage: "url(https://source.unsplash.com/lQQ4FtSYjEo/900x220)",
+    backgroundImage: 'url(https://source.unsplash.com/lQQ4FtSYjEo/900x220)'
   },
   method: {
-    backgroundImage: "url(https://source.unsplash.com/guH91yuPaMk/900x220)",
+    backgroundImage: 'url(https://source.unsplash.com/guH91yuPaMk/900x220)'
   },
   furnitures: {
-    backgroundImage: "url(https://source.unsplash.com/ryO9maYr4rY/900x220)",
+    backgroundImage: 'url(https://source.unsplash.com/ryO9maYr4rY/900x220)'
   },
 
   overlay: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     bottom: 0,
     right: 0,
     left: 0,
-    backgroundColor: "rgba(0,0,0,.3)"
+    backgroundColor: 'rgba(0,0,0,.3)'
   },
   mainFeaturedPostContent: {
-    position: "relative",
+    position: 'relative',
     padding: theme.spacing(3),
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.up('md')]: {
       padding: theme.spacing(6),
       paddingRight: 0
     }
   },
   toolbarSecondary: {
-    justifyContent: "space-between",
-    overflowX: "auto"
-  },
-  toolbarLink: {
-    padding: theme.spacing(1),
-    flexShrink: 0
+    justifyContent: 'space-between',
+    overflowX: 'auto'
   },
   footer: {
     borderTop: `1px solid ${theme.palette.divider}`,
@@ -110,15 +93,15 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2, 0)
   },
   container: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.paper
   },
   slogan: {
     ...theme.typography.body2
   }
-}));
+}))
 
-export default ({ children, pageType = 'index' }) => {
-  const classes = useStyles();
+export default function MainLayout ({ children, pageType = 'index' }) {
+  const classes = useStyles()
 
   return (
     <React.Fragment>
@@ -153,7 +136,7 @@ export default ({ children, pageType = 'index' }) => {
             <Link
               color="inherit"
               noWrap
-              as={getRouteAlias(section)}
+              as={getLinkAlias(section.page, section.as)}
               key={section.page}
               variant="body1"
               href={section.page}
@@ -190,5 +173,10 @@ export default ({ children, pageType = 'index' }) => {
 
       </Container>
     </React.Fragment>
-  );
-};
+  )
+}
+
+MainLayout.propTypes = {
+  children: PropTypes.object.isRequired,
+  pageType: PropTypes.string
+}

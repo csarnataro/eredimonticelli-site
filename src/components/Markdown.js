@@ -1,9 +1,11 @@
-import React from 'react'
-import ReactMarkdown from 'markdown-to-jsx'
 import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
+import ReactMarkdown from 'markdown-to-jsx'
+import PropTypes from 'prop-types'
+import React from 'react'
 import Obfuscate from 'react-obfuscate'
-import Link from '../../src/Link'
+import Link from '../Link'
+import { getLinkAlias } from '../utils/getLinkAlias'
 
 const styles = theme => ({
   listItem: {
@@ -11,22 +13,18 @@ const styles = theme => ({
   }
 })
 
-const getRouteAlias = (href) => {
-  switch (true) {
-    case process.env.NODE_ENV === 'development':
-      return href
-    case !href.endsWith('/'):
-      return `${href}.html`
-    default:
-        href
-  }
-}
+const ObfuscateComponent = () => <Obfuscate email={process.env.EMAIL} />
 
+const LinkComponent = ({ ...props }) => <Link {...props} as={getLinkAlias(props.href)} />
+LinkComponent.propTypes = {
+  href: PropTypes.string.isRequired
+}
 
 const options = {
   overrides: {
     Email: {
-      component: () => <Obfuscate email={process.env.EMAIL} />
+      // eslint-disable-next-line react/display-name
+      component: ObfuscateComponent
     },
     h1: {
       component: Typography,
@@ -45,9 +43,9 @@ const options = {
       props: { gutterBottom: true, variant: 'caption', paragraph: true }
     },
     p: { component: Typography, props: { paragraph: true } },
-    a: { component: ({ ...props }) => {
-      return <Link {...props} as={getRouteAlias(props.href)} />
-    } },
+    a: {
+      component: LinkComponent
+    },
     li: {
       component: withStyles(styles)(({ classes, ...props }) => (
         <li className={classes.listItem}>
