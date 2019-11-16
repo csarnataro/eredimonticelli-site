@@ -1,7 +1,6 @@
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
-// import Link from "@material-ui/core/Link";
 import Link from "../../src/Link";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
@@ -11,7 +10,7 @@ import React from "react";
 import Copyright from "./Copyright";
 
 const sections = [
-  {label: "Home", page: "/index"},
+  {label: "Home", page: "/index", as: '/'},
   {label: "Prodotti", page: "/it/tranciati-in-legno"},
   {label: "Mobili agriturismo", page: "/it/mobili-per-agriturismo"},
   {label: "Metodo", page: "/it/metodo"},
@@ -141,7 +140,7 @@ export default ({ children, pageType = 'index' }) => {
             <Link
               color="inherit"
               noWrap
-              as={section.page}
+              as={section.as || section.page}
               key={section.page}
               variant="body1"
               href={section.page}

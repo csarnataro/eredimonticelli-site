@@ -20,7 +20,10 @@ export default class MyApp extends App {
     return (
       <React.Fragment>
         <Head>
-          <title>My page</title>
+          <title>Eredi Monticelli - Primaluna (LC) - Italy</title>
+          <meta name="keywords" content="tranciati, tranciati in legno" />
+          <meta name="description" content="Eredi Monticelli, tranciati in legno di qualità." />
+
         </Head>
         <style jsx global>{`
           body { 
