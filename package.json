@@ -21,7 +21,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next build && next export",
+    "serve": "next build && next export && serve out"
   },
   "devDependencies": {
     "serve": "^11.2.0"

@@ -18,6 +18,19 @@ const sections = [
   {label: "Contatti", page: "/it/contatti"},
 ];
 
+const getRouteAlias = (section) => {
+  switch (true) {
+    case process.env.NODE_ENV === 'development':
+      return section.as || section.page
+    case section.as !== undefined:
+      return section.as
+    case !section.page.endsWith('/'):
+      return `${section.page}.html`
+    default:
+        section.page
+  }
+}
+
 const useStyles = makeStyles(theme => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
@@ -140,7 +153,7 @@ export default ({ children, pageType = 'index' }) => {
             <Link
               color="inherit"
               noWrap
-              as={section.as || section.page}
+              as={getRouteAlias(section)}
               key={section.page}
               variant="body1"
               href={section.page}

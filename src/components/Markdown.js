@@ -11,6 +11,18 @@ const styles = theme => ({
   }
 })
 
+const getRouteAlias = (href) => {
+  switch (true) {
+    case process.env.NODE_ENV === 'development':
+      return href
+    case !href.endsWith('/'):
+      return `${href}.html`
+    default:
+        href
+  }
+}
+
+
 const options = {
   overrides: {
     Email: {
@@ -33,7 +45,9 @@ const options = {
       props: { gutterBottom: true, variant: 'caption', paragraph: true }
     },
     p: { component: Typography, props: { paragraph: true } },
-    a: { component: ({ ...props }) => <Link {...props} /> },
+    a: { component: ({ ...props }) => {
+      return <Link {...props} as={getRouteAlias(props.href)} />
+    } },
     li: {
       component: withStyles(styles)(({ classes, ...props }) => (
         <li className={classes.listItem}>
