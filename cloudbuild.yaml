@@ -1,10 +1,12 @@
 steps:
-- name: 'gcr.io/cloud-builders/npm'  
+- name: 'gcr.io/cloud-builders/npm'
   args: ['install']
-- name: 'gcr.io/cloud-builders/npm'  
+- name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'build']
-- name: 'gcr.io/cloud-builders/npm'  
+- name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'export']
+  env:
+    - 'EMAIL=${_EMAIL}'
 - name: gcr.io/cloud-builders/gsutil
   args: ['rsync', '-d', '-r', 'out', 'gs://www.eredimonticelli.it']
 timeout: "300s"
