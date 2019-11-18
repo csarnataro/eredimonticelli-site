@@ -5,6 +5,8 @@ steps:
   args: ['run', 'create-env']
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'build']
+  env:
+    - 'EMAIL=${_EMAIL}'
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'export']
   env:

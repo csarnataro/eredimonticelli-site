@@ -23,7 +23,7 @@
     "start": "next start",
     "export": "next export",
     "serve": "next build && next export && serve out",
-    "create-env": "printenv EMAIL > .env"
+    "create-env": "printenv > .env"
   },
   "devDependencies": {
     "eslint": "^6.6.0",
