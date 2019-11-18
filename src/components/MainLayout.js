@@ -161,7 +161,7 @@ export default function MainLayout ({ children, pageType = 'index' }) {
             <Typography
               variant="subtitle1"
               align="center"
-              color="textSecondary"
+              color="secondary"
               component="p"
             >
               Eredi Monticelli s.n.c. - Via XXV Aprile 11, Primaluna (LC)

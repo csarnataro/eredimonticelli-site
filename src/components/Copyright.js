@@ -4,7 +4,7 @@ import Link from '../../src/Link'
 
 export default function Copyright () {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" color="secondary" align="center">
       {'Copyright '}{new Date().getFullYear()}{' © - '}
       <Link color="inherit" href="/index" as="/">
         www.eredimonticelli.it
