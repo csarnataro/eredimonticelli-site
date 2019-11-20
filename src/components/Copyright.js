@@ -8,6 +8,9 @@ export default function Copyright () {
       {'Copyright '}{new Date().getFullYear()}{' © - '}
       <Link color="inherit" href="/index" as="/">
         www.eredimonticelli.it
+      </Link>{' - '}
+      <Link color="inherit" href="/it/privacy-policy" as="/it/privacy-policy">
+        Privacy policy
       </Link>
       <small style={{ float: 'right' }}>rev: {process.env.BUILD_ID}</small>
     </Typography>
