@@ -1,4 +1,4 @@
-## Privacy policy
+## Privacy policy
 
 **In osservanza delle norme previste dal Regolamento UE 2016/679, noto anche come GDPR (General Data Protection Regulation), si rende noto che:**
 
