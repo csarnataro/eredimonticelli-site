@@ -8,6 +8,9 @@ import Link from '../Link'
 import { getLinkAlias } from '../utils/getLinkAlias'
 
 const styles = theme => ({
+  obfuscated: {
+    color: theme.palette.primary
+  },
   listItem: {
     marginTop: theme.spacing(1)
   }
@@ -15,7 +18,8 @@ const styles = theme => ({
 
 const ObfuscateComponent = () => <Obfuscate email={process.env.EMAIL} />
 
-const LinkComponent = ({ ...props }) => <Link {...props} as={getLinkAlias(props.href)} />
+const LinkComponent = ({ ...props }) => <Link underline="always"
+  {...props} as={getLinkAlias(props.href)} />
 LinkComponent.propTypes = {
   href: PropTypes.string.isRequired
 }

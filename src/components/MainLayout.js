@@ -1,6 +1,7 @@
 import Container from '@material-ui/core/Container'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Grid from '@material-ui/core/Grid'
+import Hidden from '@material-ui/core/Hidden'
 import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -8,13 +9,13 @@ import Typography from '@material-ui/core/Typography'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Link from '../../src/Link'
+import ResponsiveDrawer from '../components/ResponsiveDrawer'
 import { getLinkAlias } from '../utils/getLinkAlias'
 import Copyright from './Copyright'
 
 const sections = [
   { label: 'Home', page: '/index', as: '/' },
   { label: 'Prodotti', page: '/it/tranciati-in-legno' },
-
   { label: 'Mobili agriturismo', page: '/it/mobili-per-agriturismo' },
   { label: 'Metodo', page: '/it/metodo' },
   { label: 'Dove siamo', page: '/it/dove-siamo' },
@@ -45,7 +46,10 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
-    margin: `auto -${theme.spacing(4)}px`
+    margin: `auto -${theme.spacing(4)}px`,
+    [theme.breakpoints.down('sm')]: {
+      margin: 'auto -24px'
+    }
   },
   index: {
     backgroundImage: 'url(https://source.unsplash.com/jFCViYFYcus/900x220)'
@@ -93,7 +97,10 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2, 0)
   },
   container: {
-    backgroundColor: theme.palette.background.paper
+    backgroundColor: theme.palette.background.paper,
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '48px'
+    }
   },
   slogan: {
     ...theme.typography.body2
@@ -108,44 +115,48 @@ export default function MainLayout ({ children, pageType = 'index' }) {
       <CssBaseline />
 
       <Container fixed maxWidth="md" className={classes.container}>
-        {/* Main featured post */}
-        <Paper className={`${classes.mainFeaturedPost} ${classes[pageType]}`} square>
-          <div className={classes.overlay} />
-          <Grid container>
-            <Grid item md={6}>
-              <div className={classes.mainFeaturedPostContent}>
-                <Typography
-                  component="h1"
-                  variant="h3"
-                  color="inherit"
-                  gutterBottom
-                >
-                  Eredi Monticelli
-                </Typography>
-                <Typography variant="h5" color="inherit" paragraph>
-                  Tranciati in legno di qualità
-                </Typography>
-              </div>
-            </Grid>
-          </Grid>
-        </Paper>
-        {/* End main featured post */}
+        <ResponsiveDrawer sections={sections} />
+        <Hidden xsDown implementation="js">
 
-        <Toolbar component="nav" variant="dense" className={classes.toolbar}>
-          {sections.map(section => (
-            <Link
-              color="inherit"
-              noWrap
-              as={getLinkAlias(section.page, section.as)}
-              key={section.page}
-              variant="body1"
-              href={section.page}
-              className={classes.toolbarLink}
-            >
-              {section.label}
-            </Link>
-          ))}
-        </Toolbar>
+          {/* Main featured post */}
+          <Paper className={`${classes.mainFeaturedPost} ${classes[pageType]}`} square>
+            <div className={classes.overlay} />
+            <Grid container>
+              <Grid item md={6}>
+                <div className={classes.mainFeaturedPostContent}>
+                  <Typography
+                    component="h1"
+                    variant="h3"
+                    color="inherit"
+                    gutterBottom
+                  >
+                  Eredi Monticelli
+                  </Typography>
+                  <Typography variant="h5" color="inherit" paragraph>
+                  Tranciati in legno di qualità
+                  </Typography>
+                </div>
+              </Grid>
+            </Grid>
+          </Paper>
+          {/* End main featured post */}
+
+          <Toolbar component="nav" variant="dense" className={classes.toolbar}>
+            {sections.map(section => (
+              <Link
+                color="inherit"
+                noWrap
+                as={getLinkAlias(section.page, section.as)}
+                key={section.page}
+                variant="body1"
+                href={section.page}
+                className={classes.toolbarLink}
+              >
+                {section.label}
+              </Link>
+            ))}
+          </Toolbar>
+        </Hidden>
         <main>{children}</main>
         {/* Footer */}
         <footer className={classes.footer}>
