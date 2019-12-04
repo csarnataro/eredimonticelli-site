@@ -7,6 +7,7 @@ import Hidden from '@material-ui/core/Hidden'
 import IconButton from '@material-ui/core/IconButton'
 import List from '@material-ui/core/List'
 import Link from '../../src/Link'
+import { getLinkAlias } from '../utils/getLinkAlias'
 
 import ListItem from '@material-ui/core/ListItem'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -66,7 +67,7 @@ function ResponsiveDrawer (props) {
             <Link
               color="inherit"
               noWrap
-              as={section.page}
+              as={getLinkAlias(section.page, section.as)}
               key={section.page}
               variant="body1"
               href={section.page}
