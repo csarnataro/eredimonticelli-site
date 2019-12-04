@@ -9,7 +9,6 @@
     "dotenv": "^8.2.0",
     "markdown-to-jsx": "^6.10.3",
     "next": "latest",
-    "next-build-id": "^3.0.0",
     "prop-types": "latest",
     "raw-loader": "^3.1.0",
     "react": "latest",
@@ -23,7 +22,8 @@
     "start": "next start",
     "export": "next export",
     "serve": "next build && next export && serve out",
-    "create-env": "printenv > .env"
+    "create-env": "printenv > .env",
+    "precommit": "git rev-parse HEAD > git-commit-hash && git add git-commit-hash"
   },
   "devDependencies": {
     "eslint": "^6.6.0",
