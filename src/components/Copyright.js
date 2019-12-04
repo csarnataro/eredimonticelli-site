@@ -12,7 +12,7 @@ export default function Copyright () {
       <Link color="inherit" href="/it/privacy-policy" as="/it/privacy-policy">
         Privacy policy
       </Link>
-      <small style={{ float: 'right' }}>rev: {process.env.BUILD_ID}</small>
+      <small style={{ float: 'right' }}>rev: {process.env.COMMIT_SHA}</small>
     </Typography>
   )
 }

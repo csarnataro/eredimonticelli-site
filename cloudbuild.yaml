@@ -11,6 +11,7 @@ steps:
   args: ['run', 'export']
   env:
     - 'EMAIL=${_EMAIL}'
+    - 'COMMIT_SHA=${_COMMIT_SHA}'
 - name: gcr.io/cloud-builders/gsutil
   args: ['rsync', '-d', '-r', 'out', 'gs://www.eredimonticelli.it']
 timeout: "300s"
