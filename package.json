@@ -17,7 +17,7 @@
     "simple-react-lightbox": "^1.4.3"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "next -p ${PORT:-3000}",
     "build": "next build",
     "start": "next start",
     "export": "next export",

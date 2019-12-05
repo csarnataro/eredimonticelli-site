@@ -4,12 +4,11 @@ import Link from '../../src/Link'
 import { getLinkAlias } from '../utils/getLinkAlias'
 
 const getRevision = () => {
-  if (process.env.COMMIT_SHA) {
-    return (
-      <small style={{ float: 'right' }}>rev: {process.env.COMMIT_SHA.toString().substr(0, 8)}</small>
-    )
-  }
-  return ''
+  const rev = process.env.COMMIT_SHA
+    ? process.env.COMMIT_SHA.toString().substr(0, 7)
+    : 'dev'
+
+  return (<small style={{ float: 'right' }}>rev: {rev}</small>)
 }
 
 export default function Copyright () {
