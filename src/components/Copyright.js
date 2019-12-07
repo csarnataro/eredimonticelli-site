@@ -1,7 +1,6 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
-import Link from '../../src/Link'
-import { getLinkAlias } from '../utils/getLinkAlias'
+import { Link } from 'gatsby-theme-material-ui'
 
 const getRevision = () => {
   const rev = process.env.COMMIT_SHA
@@ -24,7 +23,7 @@ export default function Copyright () {
       <Link
         color='inherit'
         href='/it/privacy-policy'
-        as={getLinkAlias('/it/privacy-policy')}
+        to={'/it/privacy-policy'}
       >
         Privacy policy
       </Link>

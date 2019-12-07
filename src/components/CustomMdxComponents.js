@@ -1,29 +1,31 @@
-import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-import ReactMarkdown from 'markdown-to-jsx'
-import PropTypes from 'prop-types'
+import { Link } from 'gatsby-theme-material-ui'
 import React from 'react'
 import Obfuscate from 'react-obfuscate'
-import Link from '../Link'
-import { getLinkAlias } from '../utils/getLinkAlias'
+import PhotoGallery from './PhotoGallery'
 
-const styles = theme => ({
-  obfuscated: {
-    color: theme.palette.primary
-  },
-  listItem: {
-    marginTop: theme.spacing(1)
-  }
-})
-
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/prop-types */
+const MdxLink = props => <Link to={props.href} style={{ textDecoration: 'underline' }} {...props}/>
+const MdxH1 = props => <Typography gutterBottom variant='h4' {...props} />
+const MdxH2 = props => <Typography gutterBottom variant='h6' {...props} />
+const MdxParagraph = props => <Typography paragraph {...props} />
+const MdxListItem = props => <li>
+  <Typography gutterBottom component='div' {...props} />
+</li>
 const ObfuscateComponent = () => <Obfuscate email={process.env.EMAIL} />
 
-const LinkComponent = ({ ...props }) => <Link underline="always"
-  {...props} as={getLinkAlias(props.href)} />
-LinkComponent.propTypes = {
-  href: PropTypes.string.isRequired
+export default {
+  a: MdxLink,
+  h1: MdxH1,
+  h2: MdxH2,
+  p: MdxParagraph,
+  li: MdxListItem,
+  PhotoGallery,
+  Email: ObfuscateComponent
 }
 
+/*
 const options = {
   overrides: {
     Email: {
@@ -59,7 +61,4 @@ const options = {
     }
   }
 }
-
-export default function Markdown (props) {
-  return <ReactMarkdown options={options} {...props} />
-}
+*/

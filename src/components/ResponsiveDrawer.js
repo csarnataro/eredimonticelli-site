@@ -6,8 +6,7 @@ import Drawer from '@material-ui/core/Drawer'
 import Hidden from '@material-ui/core/Hidden'
 import IconButton from '@material-ui/core/IconButton'
 import List from '@material-ui/core/List'
-import Link from '../../src/Link'
-import { getLinkAlias } from '../utils/getLinkAlias'
+import { Link } from 'gatsby-theme-material-ui'
 
 import ListItem from '@material-ui/core/ListItem'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -67,7 +66,7 @@ function ResponsiveDrawer (props) {
             <Link
               color="inherit"
               noWrap
-              as={getLinkAlias(section.page, section.as)}
+              to={section.page}
               key={section.page}
               variant="body1"
               href={section.page}
