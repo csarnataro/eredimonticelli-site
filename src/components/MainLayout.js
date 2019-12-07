@@ -2,19 +2,24 @@ import Container from '@material-ui/core/Container'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
+import { Helmet } from 'react-helmet'
 import Paper from '@material-ui/core/Paper'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles'
+
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import PropTypes from 'prop-types'
 import React from 'react'
-import Link from '../../src/Link'
+import { Link } from 'gatsby-theme-material-ui'
 import ResponsiveDrawer from '../components/ResponsiveDrawer'
-import { getLinkAlias } from '../utils/getLinkAlias'
 import Copyright from './Copyright'
+import customComponents from './CustomMdxComponents'
+
+import { MDXProvider } from '@mdx-js/react'
+import theme from '../theme'
 
 const sections = [
-  { label: 'Home', page: '/index', as: '/' },
+  { label: 'Home', page: '/', as: '/' },
   { label: 'Prodotti', page: '/it/tranciati-in-legno' },
   { label: 'Mobili agriturismo', page: '/it/mobili-per-agriturismo' },
   { label: 'Metodo', page: '/it/metodo' },
@@ -42,7 +47,6 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
     marginBottom: theme.spacing(1),
-    backgroundImage: 'url(https://source.unsplash.com/jFCViYFYcus/900x220)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -99,95 +103,124 @@ const useStyles = makeStyles(theme => ({
   container: {
     backgroundColor: theme.palette.background.paper,
     [theme.breakpoints.down('sm')]: {
-      marginTop: '48px'
+      marginTop: '56px'
     }
   },
   slogan: {
     ...theme.typography.body2
+  },
+  main: {
+    padding: theme.spacing(2)
   }
 }))
 
-export default function MainLayout ({ children, pageType = 'index' }) {
+const DEFAULT_HERO_URL = 'https://source.unsplash.com/jFCViYFYcus/900x220'
+
+export default function MainLayout ({ pageContext, children }) {
   const classes = useStyles()
+  const pageTitle = pageContext.frontmatter && pageContext.frontmatter.title
+    ? pageContext.frontmatter.title
+    : 'Eredi Monticelli'
+
+  const heroBgUrl = pageContext.frontmatter && pageContext.frontmatter.heroBg
+    ? pageContext.frontmatter.heroBg
+    : DEFAULT_HERO_URL
+
+  const heroStyle = {
+    backgroundImage: `url(${heroBgUrl})`
+  }
 
   return (
-    <React.Fragment>
-      <CssBaseline />
+    <ThemeProvider theme={theme}>
+      <MDXProvider components={{ ...customComponents }}>
+        <CssBaseline />
+        <Helmet>
+          <title>{pageTitle}</title>
+          <meta name="description" content={pageContext.frontmatter.description} />
+          <meta name="keywords" content={pageContext.frontmatter.keywords} />
+          <meta name="author" content="Christian Sarnataro" />
+          <style type="text/css">{`
+            body {
+              background-image: url(/images/bg.jpg);
+            }
+        `}</style>
+        </Helmet>
+        <Container fixed maxWidth="md" className={classes.container}>
+          <ResponsiveDrawer sections={sections} />
+          <Hidden xsDown implementation="js">
 
-      <Container fixed maxWidth="md" className={classes.container}>
-        <ResponsiveDrawer sections={sections} />
-        <Hidden xsDown implementation="js">
-
-          {/* Main featured post */}
-          <Paper className={`${classes.mainFeaturedPost} ${classes[pageType]}`} square>
-            <div className={classes.overlay} />
-            <Grid container>
-              <Grid item md={6}>
-                <div className={classes.mainFeaturedPostContent}>
-                  <Typography
-                    component="h1"
-                    variant="h3"
-                    color="inherit"
-                    gutterBottom
-                  >
-                  Eredi Monticelli
-                  </Typography>
-                  <Typography variant="h5" color="inherit" paragraph>
-                  Tranciati in legno di qualità
-                  </Typography>
-                </div>
+            {/* Main featured post */}
+            <Paper style={heroStyle} className={`${classes.mainFeaturedPost}`} square>
+              <div className={classes.overlay} />
+              <Grid container>
+                <Grid item md={6}>
+                  <div className={classes.mainFeaturedPostContent}>
+                    <Typography
+                      component="h1"
+                      variant="h3"
+                      color="inherit"
+                      gutterBottom
+                    >
+                      Eredi Monticelli
+                    </Typography>
+                    <Typography variant="h5" color="inherit" paragraph>
+                      Tranciati in legno di qualità
+                    </Typography>
+                  </div>
+                </Grid>
               </Grid>
-            </Grid>
-          </Paper>
-          {/* End main featured post */}
+            </Paper>
+            {/* End main featured post */}
 
-          <Toolbar component="nav" variant="dense" className={classes.toolbar}>
-            {sections.map(section => (
-              <Link
-                color="inherit"
-                noWrap
-                as={getLinkAlias(section.page, section.as)}
-                key={section.page}
-                variant="body1"
-                href={section.page}
-                className={classes.toolbarLink}
+            <Toolbar component="nav" variant="dense" className={classes.toolbar}>
+              {sections.map(section => (
+                <Link
+                  color="inherit"
+                  noWrap
+                  to={section.page}
+                  key={section.page}
+                  variant="body1"
+                  href={section.page}
+                  className={classes.toolbarLink}
+                >
+                  {section.label}
+                </Link>
+              ))}
+            </Toolbar>
+          </Hidden>
+          <main className={classes.main}>{children}</main>
+          {/* Footer */}
+          <footer className={classes.footer}>
+            <Container maxWidth="lg">
+              <Typography
+                variant="h6"
+                align="center"
+                gutterBottom
+                className={classes.slogan}
               >
-                {section.label}
-              </Link>
-            ))}
-          </Toolbar>
-        </Hidden>
-        <main>{children}</main>
-        {/* Footer */}
-        <footer className={classes.footer}>
-          <Container maxWidth="lg">
-            <Typography
-              variant="h6"
-              align="center"
-              gutterBottom
-              className={classes.slogan}
-            >
               &gt;&gt; Il naturale equilibrio del legno &lt;&lt;
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              align="center"
-              color="secondary"
-              component="p"
-            >
+              </Typography>
+              <Typography
+                variant="subtitle1"
+                align="center"
+                color="secondary"
+                component="p"
+              >
               Eredi Monticelli s.n.c. - Via XXV Aprile 11, Primaluna (LC)
-            </Typography>
-            <Copyright />
-          </Container>
-        </footer>
-        {/* End footer */}
+              </Typography>
+              <Copyright />
+            </Container>
+          </footer>
+          {/* End footer */}
 
-      </Container>
-    </React.Fragment>
+        </Container>
+      </MDXProvider>
+    </ThemeProvider>
+
   )
 }
 
 MainLayout.propTypes = {
-  children: PropTypes.object.isRequired,
-  pageType: PropTypes.string
+  children: PropTypes.array.isRequired,
+  pageContext: PropTypes.object.isRequired
 }
