@@ -4,8 +4,8 @@ steps:
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'build']
   env:
-    - EMAIL=${_EMAIL}
+    - EMAIL=${_EMAIL}.com
     - COMMIT_SHA=$COMMIT_SHA
 - name: gcr.io/cloud-builders/gsutil
-  args: ['rsync', '-d', '-r', 'public', 'gs://www.eredimonticelli.it']
+  args: ['-m', 'rsync', '-d', '-r', 'public', 'gs://www.eredimonticelli.it']
 timeout: "300s"
