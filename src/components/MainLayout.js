@@ -2,21 +2,20 @@ import Container from '@material-ui/core/Container'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
-import { Helmet } from 'react-helmet'
 import Paper from '@material-ui/core/Paper'
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles'
-
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
+import { MDXProvider } from '@mdx-js/react'
+import { Link } from 'gatsby-theme-material-ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Link } from 'gatsby-theme-material-ui'
+import { Helmet } from 'react-helmet'
+import Obfuscate from 'react-obfuscate'
 import ResponsiveDrawer from '../components/ResponsiveDrawer'
+import theme from '../theme'
 import Copyright from './Copyright'
 import customComponents from './CustomMdxComponents'
-
-import { MDXProvider } from '@mdx-js/react'
-import theme from '../theme'
 
 const sections = [
   { label: 'Home', page: '/', as: '/' },
@@ -55,25 +54,6 @@ const useStyles = makeStyles(theme => ({
       margin: 'auto -24px'
     }
   },
-  index: {
-    backgroundImage: 'url(https://source.unsplash.com/jFCViYFYcus/900x220)'
-  },
-  contacts: {
-    backgroundImage: 'url(https://source.unsplash.com/u3ajSXhZM_U/900x220)'
-  },
-  where: {
-    backgroundImage: 'url(https://source.unsplash.com/mHe5VpKhjOo/900x220)'
-  },
-  products: {
-    backgroundImage: 'url(https://source.unsplash.com/lQQ4FtSYjEo/900x220)'
-  },
-  method: {
-    backgroundImage: 'url(https://source.unsplash.com/guH91yuPaMk/900x220)'
-  },
-  furnitures: {
-    backgroundImage: 'url(https://source.unsplash.com/ryO9maYr4rY/900x220)'
-  },
-
   overlay: {
     position: 'absolute',
     top: 0,
@@ -207,6 +187,7 @@ export default function MainLayout ({ pageContext, children }) {
                 component="p"
               >
               Eredi Monticelli s.n.c. - Via XXV Aprile 11, Primaluna (LC)
+              - {<Obfuscate email={process.env.EMAIL} />}
               </Typography>
               <Copyright />
             </Container>
