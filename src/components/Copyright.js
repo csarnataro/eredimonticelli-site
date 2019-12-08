@@ -7,7 +7,7 @@ const getRevision = () => {
     ? process.env.COMMIT_SHA.toString().substr(0, 7)
     : 'dev'
 
-  return (<small style={{ float: 'right' }}> - {process.env.EMAIL} - b.{rev}</small>)
+  return (<small style={{ float: 'right' }}> - rev:{rev}</small>)
 }
 
 export default function Copyright () {
