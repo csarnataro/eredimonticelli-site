@@ -18,13 +18,22 @@ import customComponents from './CustomMdxComponents'
 import { MDXProvider } from '@mdx-js/react'
 import theme from '../theme'
 
-const sections = [
-  { label: 'Home', page: '/', as: '/' },
+const sectionsIt = [
+  { label: 'Home', page: '/' },
   { label: 'Prodotti', page: '/it/tranciati-in-legno' },
   { label: 'Mobili agriturismo', page: '/it/mobili-per-agriturismo' },
   { label: 'Metodo', page: '/it/metodo' },
   { label: 'Dove siamo', page: '/it/dove-siamo' },
   { label: 'Contatti', page: '/it/contatti' }
+]
+
+const sectionsEn = [
+  { label: 'Home', page: '/en' },
+  { label: 'Products', page: '/en/products' },
+  { label: 'Country furnitures', page: '/en/country-furnitures' },
+  { label: 'Our method', page: '/en/our-method' },
+  { label: 'Where we are', page: '/en/where-we-are' },
+  { label: 'Contacts', page: '/en/contacts' }
 ]
 
 const useStyles = makeStyles(theme => ({
@@ -116,7 +125,7 @@ const useStyles = makeStyles(theme => ({
 
 const DEFAULT_HERO_URL = 'https://source.unsplash.com/jFCViYFYcus/900x220'
 
-export default function MainLayout ({ pageContext, children }) {
+export default function MainLayout ({ location, pageContext, children }) {
   const classes = useStyles()
   const pageTitle = pageContext.frontmatter && pageContext.frontmatter.title
     ? pageContext.frontmatter.title
@@ -129,6 +138,10 @@ export default function MainLayout ({ pageContext, children }) {
   const heroStyle = {
     backgroundImage: `url(${heroBgUrl})`
   }
+
+  const sections = location.pathname.startsWith('/en')
+    ? sectionsEn
+    : sectionsIt
 
   return (
     <ThemeProvider theme={theme}>
@@ -145,6 +158,7 @@ export default function MainLayout ({ pageContext, children }) {
             }
         `}</style>
         </Helmet>
+        <pre>[{location.pathname}]</pre>
         <Container fixed maxWidth="md" className={classes.container}>
           <ResponsiveDrawer sections={sections} />
           <Hidden xsDown implementation="js">
@@ -221,6 +235,7 @@ export default function MainLayout ({ pageContext, children }) {
 }
 
 MainLayout.propTypes = {
+  location: PropTypes.object.isRequired,
   children: PropTypes.array.isRequired,
   pageContext: PropTypes.object.isRequired
 }

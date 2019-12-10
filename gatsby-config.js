@@ -13,7 +13,7 @@ module.exports = {
     'gatsby-theme-material-ui',
     {
       resolve: 'gatsby-plugin-mdx',
-      // extensions: ['.md'],
+      // extensions: ['.mdx'],
       options: {
         defaultLayouts: {
           default: require.resolve('./src/components/MainLayout.js')
