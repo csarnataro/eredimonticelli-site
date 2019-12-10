@@ -76,12 +76,6 @@ function ResponsiveDrawer (props) {
             </Link>
           </ListItem>
         ))}
-
-        {/* {links.map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))} */}
       </List>
     </div>
   )
@@ -90,8 +84,7 @@ function ResponsiveDrawer (props) {
       <CssBaseline />
 
       <nav className={classes.drawer}>
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden smUp implementation="js">
+        <Hidden smUp implementation="css">
           <AppBar position="fixed" className={classes.appBar}>
             <Toolbar>
               <Typography variant="h6" noWrap>

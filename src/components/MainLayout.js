@@ -140,7 +140,7 @@ export default function MainLayout ({ location, pageContext, children }) {
         </Helmet>
         <Container fixed maxWidth="md" className={classes.container}>
           <ResponsiveDrawer sections={sections} />
-          <Hidden xsDown implementation="js">
+          <Hidden xsDown implementation="css">
 
             {/* Main featured post */}
             <Paper style={heroStyle} className={`${classes.mainFeaturedPost}`} square>
