@@ -138,7 +138,6 @@ export default function MainLayout ({ location, pageContext, children }) {
             }
         `}</style>
         </Helmet>
-        <pre>[{location.pathname}]</pre>
         <Container fixed maxWidth="md" className={classes.container}>
           <ResponsiveDrawer sections={sections} />
           <Hidden xsDown implementation="js">
