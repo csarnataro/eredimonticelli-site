@@ -1,13 +1,22 @@
+# docker pull devillex/docker-firebase
+
 steps:
 - name: 'gcr.io/cloud-builders/npm'
   args: ['install']
+
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'create-env']
   env:
     - EMAIL=${_EMAIL}
     - COMMIT_SHA=$COMMIT_SHA
+
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'build']
-- name: gcr.io/cloud-builders/gsutil
-  args: ['-m', 'rsync', '-d', '-r', 'public', 'gs://www.eredimonticelli.it']
+  env:
+    - EMAIL=${_EMAIL}
+    - COMMIT_SHA=$COMMIT_SHA
+
+- name: devillex/docker-firebase
+  args: [ 'firebase', 'deploy', '--project', '$PROJECT_ID', "--token", "$_TOKEN"]
+
 timeout: "300s"
