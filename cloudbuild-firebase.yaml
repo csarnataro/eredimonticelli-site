@@ -14,6 +14,6 @@ steps:
     - COMMIT_SHA=$COMMIT_SHA
 
 - name: devillex/docker-firebase
-  args: [ 'deploy', '--project', '[PROJECT_ID]']
+  args: [ 'firebase', 'deploy', '--project', '[PROJECT_ID]']
 
 timeout: "300s"
