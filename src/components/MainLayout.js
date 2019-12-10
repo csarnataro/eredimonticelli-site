@@ -103,7 +103,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DEFAULT_HERO_URL = 'https://source.unsplash.com/jFCViYFYcus/900x220'
+const DEFAULT_HERO_URL = '/images/hero-home.jpg'
 
 export default function MainLayout ({ location, pageContext, children }) {
   const classes = useStyles()
