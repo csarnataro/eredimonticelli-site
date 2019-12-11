@@ -1,6 +1,6 @@
 ---
 title: Tranciati in legno - Eredi Monticelli S.n.c
-heroBg: /images/hero-mobili.jpg
+heroBg: /images/hero-prodotti.jpg
 ---
 ## I nostri prodotti
 

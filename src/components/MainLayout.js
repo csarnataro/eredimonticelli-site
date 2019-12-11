@@ -2,12 +2,15 @@ import Container from '@material-ui/core/Container'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
+
+import { Link } from 'gatsby-theme-material-ui'
+
 import Paper from '@material-ui/core/Paper'
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import { MDXProvider } from '@mdx-js/react'
-import { Link } from 'gatsby-theme-material-ui'
+
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Helmet } from 'react-helmet'
@@ -17,13 +20,17 @@ import theme from '../theme'
 import Copyright from './Copyright'
 import customComponents from './CustomMdxComponents'
 
+import EnIcon from '../../static/images/svg/en-flag.svg'
+import ItIcon from '../../static/images/svg/it-flag.svg'
+
 const sectionsIt = [
   { label: 'Home', page: '/' },
   { label: 'Prodotti', page: '/it/tranciati-in-legno' },
   { label: 'Mobili agriturismo', page: '/it/mobili-per-agriturismo' },
   { label: 'Metodo', page: '/it/metodo' },
   { label: 'Dove siamo', page: '/it/dove-siamo' },
-  { label: 'Contatti', page: '/it/contatti' }
+  { label: 'Contatti', page: '/it/contatti' },
+  { label: <EnIcon width={24} height={18}/>, page: '/en' }
 ]
 
 const sectionsEn = [
@@ -32,7 +39,9 @@ const sectionsEn = [
   { label: 'Country furnitures', page: '/en/country-furnitures' },
   { label: 'Our method', page: '/en/our-method' },
   { label: 'Where we are', page: '/en/where-we-are' },
-  { label: 'Contacts', page: '/en/contacts' }
+  { label: 'Contacts', page: '/en/contacts' },
+  { label: <ItIcon width={24} height={18}/>, page: '/' }
+
 ]
 
 const useStyles = makeStyles(theme => ({

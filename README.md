@@ -1,21 +1,10 @@
-# Next.js example
+# Web site www.eredimonticelli.it
 
-## How to use
+This is a static site www.eredimonticelli.it created with Gatsby/React, hosted 
+on Google Firebase hosting.
 
-Download the example [or clone the repo](https://github.com/mui-org/material-ui):
+## Hosting on Firebase
+Some suggestions on how to host a static site on Firebase are coming from:
 
-```sh
-curl https://codeload.github.com/mui-org/material-ui/tar.gz/master | tar -xz --strip=2  material-ui-master/examples/nextjs
-cd nextjs
-```
+https://www.crowdform.co.uk/blog/deploying-a-gatsby-site-to-firebase-with-google-cloud-build
 
-Install it and run:
-
-```sh
-npm install
-npm run dev
-```
-
-## The idea behind the example
-
-[Next.js](https://github.com/zeit/next.js) is a framework for server-rendered React apps.

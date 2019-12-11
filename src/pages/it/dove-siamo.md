@@ -10,7 +10,7 @@ heroBg: /images/hero-dove-siamo.jpg
   - uscita Lecco Centro / Valsassina
   - seguire le indicazioni per Valsassina
   - a Ballabio, seguire le indicazioni per Introbio/Taceno
-  - oltrepassato labitato di Introbio, la seconda via sulla sinistra dopo lo stabilimento NORDA
+  - oltrepassato l'abitato di Introbio, la seconda via sulla sinistra dopo lo stabilimento NORDA
   - proseguire per 200 metri su via XXV Aprile
 
 
