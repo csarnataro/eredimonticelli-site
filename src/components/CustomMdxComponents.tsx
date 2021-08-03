@@ -1,21 +1,20 @@
-import Typography from '@material-ui/core/Typography'
-import { Link } from 'gatsby-theme-material-ui'
+import Link from 'next/link'
 import React from 'react'
-import Obfuscate from 'react-obfuscate'
+import { Obfuscate } from '@south-paw/react-obfuscate-ts';
 import PhotoGallery from './PhotoGallery'
 
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable react/prop-types */
-const MdxLink = props => <Link to={props.href} style={{ textDecoration: 'underline' }} {...props}/>
-const MdxH1 = props => <Typography gutterBottom variant='h4' {...props} />
-const MdxH2 = props => <Typography gutterBottom variant='h6' {...props} />
-const MdxParagraph = props => <Typography paragraph {...props} />
-const MdxListItem = props => <li>
-  <Typography gutterBottom component='div' {...props} />
+const MdxLink = (props: any) => <Link to={props.href} style={{ textDecoration: 'underline' }} {...props} />
+const MdxH1 = (props: any) => <h4>{props}</h4>
+const MdxH2 = (props: any) => <h6>{props}</h6>
+const MdxParagraph = (props: any) => <p>{props}</p>
+const MdxListItem = (props: any) => <li>
+  <div>{props}</div>
 </li>
 const ObfuscateComponent = () => <Obfuscate email={process.env.EMAIL} />
 
-export default {
+const validMDXElement = {
   a: MdxLink,
   h1: MdxH1,
   h2: MdxH2,
@@ -24,6 +23,8 @@ export default {
   PhotoGallery,
   Email: ObfuscateComponent
 }
+
+export default validMDXElement;
 
 /*
 const options = {

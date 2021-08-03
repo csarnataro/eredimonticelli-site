@@ -1,3 +1,10 @@
+---
+title: Eredi Monticelli S.r.l - L'azienda
+description: L'azienda Eredi Monticelli S.r.l produce tranciati in legni pregiati dal 1930
+keywords: tranciati, tranciati in legno, mobili agriturismo, tavoli agriturismo
+heroBg: /images/hero-home.jpg
+---
+
 ## A family firm
  
 * Since 1930, the Monticelli family produces high quality [wood veneers](/en/products). This long experience, coupled with a genuine passion for wood and all its applications, enables Eredi Monticelli today to continue this long tradition and to offer products and tailor made services to satisfy the different requirements of our customers.
