@@ -24,9 +24,9 @@ const Navigation = ({ menuItems, headline }: any) => {
             </div>
             <div className="hidden sm:flex w-full items-center space-x-1 justify-around">
               {menuItems.map((menuItem: any) =>
-                <Link href={menuItem.page} locale={menuItem.locale} key={`${menuItem.locale || ''}/${menuItem.page}`}>
+                <Link href={menuItem.page} locale={menuItem.locale} key={`${menuItem.locale}/${menuItem.page}`}>
                   <a className="py-4 px-2 text-gray-500 font-semibold hover:underline hover:text-green-500 transition duration-300">
-                    {menuItem.label} - {`${menuItem.locale || ''}/${menuItem.page}`}
+                    {menuItem.label}
                   </a>
                 </Link>
               )}
@@ -52,11 +52,13 @@ const Navigation = ({ menuItems, headline }: any) => {
       <div className={`${mobileMenuClass} md:hidden mobile-menu`}>
         <ul className="">
           {menuItems.map((menuItem: any) =>
-            <li><Link href={menuItem.page} key={`m-${menuItem.locale}/${menuItem.page}`}>
-              <a onClick={closeMenu} className="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">
-                {menuItem.label}
-              </a>
-            </Link></li>
+            <li key={`${menuItem.locale}/${menuItem.page}`}>
+              <Link href={menuItem.page}>
+                <a onClick={closeMenu} className="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">
+                  {menuItem.label}
+                </a>
+              </Link>
+            </li>
           )}
         </ul>
       </div>

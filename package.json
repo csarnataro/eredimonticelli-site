@@ -22,6 +22,7 @@
   "devDependencies": {
     "@types/mdx-js__react": "^1.5.4",
     "@types/react": "17.0.15",
+    "@types/simple-react-lightbox": "^3.6.1",
     "autoprefixer": "^10.3.1",
     "eslint": "7.32.0",
     "eslint-config-next": "11.0.1",

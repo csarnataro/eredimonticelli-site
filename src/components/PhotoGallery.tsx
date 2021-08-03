@@ -3,9 +3,9 @@ import React from 'react'
 import ImgMediaCard from './ImgMediaCard'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
 
-function GalleryItem ({ imageUrl, title }) {
+function GalleryItem ({ imageUrl, title }: any) {
   return (
-    <div item md={4}>
+    <div>
       <ImgMediaCard image={imageUrl} title={title} />
 
       {/*
@@ -26,14 +26,14 @@ GalleryItem.defaultProps = {
   title: 'No title'
 }
 
-export default function PhotoGallery ({ children }) {
+export default function PhotoGallery ({ children }: any) {
 
   return (
     <SimpleReactLightbox>
       <SRLWrapper>
         <div>
           <div>
-            {children.map(item =>
+            {children.map((item: any) =>
               <GalleryItem key={item[0]} {...{ imageUrl: item[0], title: item[1] }} />
             )}
           </div>
