@@ -1,18 +1,18 @@
 # docker pull devillex/docker-firebase
 
 steps:
-- name: 'node@22.20.0'
+- name: 'node:22.20.0'
   entrypoint: 'npm'
   args: ['ci']
 
-- name: 'node@22.20.0'
+- name: 'node:22.20.0'
   entrypoint: 'npm'
   args: ['run', 'create-env']
   env:
     - EMAIL=${_EMAIL}
     - COMMIT_SHA=$COMMIT_SHA
 
-- name: 'node@22.20.0'
+- name: 'node:22.20.0'
   entrypoint: 'npm'
   args: ['run', 'build']
   env:
