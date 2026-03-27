@@ -1,7 +1,7 @@
 # docker pull devillex/docker-firebase
 
 steps:
-- name: 'gcr.io/cloud-builders/npm:node-22.20.0'
+- name: 'gcr.io/cloud-builders/npm:node-19.0.0'
   args: ['install']
 
 - name: 'gcr.io/cloud-builders/npm'
@@ -10,7 +10,7 @@ steps:
     - EMAIL=${_EMAIL}
     - COMMIT_SHA=$COMMIT_SHA
 
-- name: 'gcr.io/cloud-builders/npm-22.20.0'
+- name: 'gcr.io/cloud-builders/npm-19.0.0'
   args: ['run', 'build']
   env:
     - EMAIL=${_EMAIL}
