@@ -20,6 +20,6 @@ steps:
     - COMMIT_SHA=$COMMIT_SHA
 
 - name: us-docker.pkg.dev/firebase-cli/us/firebase
-  args: [ 'deploy', '--project', '$PROJECT_ID', "--token", "$_TOKEN"]
+  args: [ 'deploy', '--project=$PROJECT_ID', '--only=hosting']
 
 timeout: "300s"
